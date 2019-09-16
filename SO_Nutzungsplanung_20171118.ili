@@ -355,6 +355,10 @@ VERSION "2017-11-18"  =
       Typ_Grundnutzung -- {0..*} Typ_Grundnutzung;
       Dokument (EXTERNAL) -- {0..*} SO_Nutzungsplanung_20171118.Rechtsvorschriften.Dokument;
     END Typ_Grundnutzung_Dokument;
+    
+    CONSTRAINTS OF Typ_Grundnutzung = 
+    	MANDATORY CONSTRAINT ((INTERLIS.objectCount(Dokument)>=1) AND (Typ_Kt == #N169_weitere_eingeschraenkte_Bauzonen)) OR (Typ_Kt != #N169_weitere_eingeschraenkte_Bauzonen); 
+    END;
 
     /** Siehe in der Arbeitshilfe
      */
